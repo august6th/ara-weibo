@@ -1,4 +1,4 @@
-@extends('layouts.default_static')
+@extends('layouts.default')
 @section('title', 'Home')
 @section('real-content')
     <div
