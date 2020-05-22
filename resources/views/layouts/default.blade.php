@@ -12,7 +12,9 @@
 </head>
 <body class="antialiased font-sans bg-gray-200">
 <div class="">
+    <div class="relative bg-white overflow-hidden">
     @yield('content')
+    </div>
 </div>
 </body>
 </html>

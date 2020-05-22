@@ -1,5 +1,5 @@
-@extends('layouts.default')
+@extends('layouts.default_static')
 @section('title', 'Help')
-@section('content')
-    <h1>Help</h1>
+@section('real-content')
+
 @stop
