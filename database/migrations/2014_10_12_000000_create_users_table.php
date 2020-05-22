@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use App\Services\Database\Blueprint;
 use App\Services\Facades\Schema;
+use Illuminate\Database\Grammar;
 
 class CreateUsersTable extends Migration
 {
@@ -19,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email', 50)->comment('邮箱地址')->unique();
             $table->dateTime('email_verified_at')->comment('邮箱验证时间');
             $table->string('password', 100)->comment('密码');
-            $table->rememberToken()->comment('记住我');
+            $table->rememberToken()->comment('记住我token');
             $table->dateTimes();
         });
     }
