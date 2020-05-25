@@ -29,9 +29,17 @@
                class="ml-8 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">About</a>
             <a href="{{route('help')}}"
                class="ml-8 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Help</a>
-            <a href="{{route('sign-up')}}"
-               class="ml-8 font-medium text-indigo-600 hover:text-indigo-900 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out">Log
-                in</a>
+            @if(!isset($user))
+                <a href="{{ route('sign-up')}}"
+                   class="ml-8 font-medium text-indigo-600 hover:text-indigo-900 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out">Log
+                    in</a>
+            @else
+                <img src="{{ $user->gravatar(140) }}" alt="{{ $user->name }}" class="inline ml-8 h-8 w-8 rounded-full">
+{{--                <span--}}
+{{--                    class="ml-8 font-medium text-indigo-600 hover:text-indigo-900 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out">--}}
+{{--                    {{ $user->name }}--}}
+{{--                </span>--}}
+            @endif
         </div>
     </nav>
 </div>
@@ -65,13 +73,18 @@
                    class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">About</a>
                 <a href="{{route('help')}}"
                    class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Help</a>
+                @if(isset($user))
+                    <img src="{{ $user->gravatar(140) }}" alt="{{ $user->name }}" class="inline mt-1 h-8 w-8 ml-3 rounded-full">
+                @endif
             </div>
+            @if(!isset($user))
             <div>
                 <a href="{{route('sign-up')}}"
                    class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100 hover:text-indigo-700 focus:outline-none focus:bg-gray-100 focus:text-indigo-700 transition duration-150 ease-in-out">
                     Log in
                 </a>
             </div>
+            @endif
         </div>
     </div>
 </div>
