@@ -1,11 +1,37 @@
 <?php
 
-namespace App\Services\Database;
+namespace App\Services\Database\Schema;
 
 use Illuminate\Support\Facades\DB;
 
 class Blueprint extends \Illuminate\Database\Schema\Blueprint
 {
+    /**
+     * Table comment
+     * @var string
+     */
+    protected $comment;
+
+    /**
+     * Set table comment
+     * @author heng.li 2020/5/25
+     * @param string $comment
+     */
+    public function comment(string $comment)
+    {
+        $this->comment = str_replace("'", "\'", $comment);
+    }
+
+    /**
+     * Get table comment
+     * @author heng.li 2020/5/25
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
     public function string($column, $length = null)
     {
         $column = parent::string($column, $length);

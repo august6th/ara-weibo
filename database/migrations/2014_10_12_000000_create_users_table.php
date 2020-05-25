@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use App\Services\Database\Blueprint;
+use App\Services\Database\Schema\Blueprint;
 use App\Services\Facades\Schema;
-use Illuminate\Database\Grammar;
 
 class CreateUsersTable extends Migration
 {
@@ -22,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 100)->comment('密码');
             $table->rememberToken()->comment('记住我token');
             $table->dateTimes();
+            $table->comment('用户表');
         });
     }
 
