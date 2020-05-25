@@ -10,4 +10,6 @@ class UserController extends Controller
     {
         return view('users/sign_up');
     }
+
+
 }
