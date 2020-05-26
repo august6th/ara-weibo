@@ -6,9 +6,9 @@
     <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start">
         <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
             <div class="flex items-center w-full md:w-auto justify-end">
-                <a href="/" class="absolute top-0 left-0 z-0">
+                <div class="absolute top-0 left-0 z-0">
                     @include('layouts.logo')
-                </a>
+                </div>
                 <div class="mr-2 flex items-center md:hidden">
                     <button @click="open = true" type="button"
                             class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
@@ -51,9 +51,9 @@
     <div class="rounded-lg shadow-md">
         <div class="rounded-lg bg-white shadow-xs overflow-hidden">
             <div class="relative px-5 pt-4 flex items-center justify-end">
-                <a href="/" class="absolute top-4 left-5">
+                <div class="absolute top-4 left-5">
                     @include('layouts.logo')
-                </a>
+                </div>
                 <div class=>
                     <button @click="open = false" type="button"
                             class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
