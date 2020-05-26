@@ -34,7 +34,7 @@
                    class="ml-8 font-medium text-indigo-600 hover:text-indigo-900 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out">Log
                     in</a>
             @else
-                <img src="{{ $user->gravatar(140) }}" alt="{{ $user->name }}" class="inline ml-8 h-8 w-8 rounded-full">
+                <img src="{{$user->gravatar(140)}}" alt="{{$user->name}}" class="inline ml-8 h-8 w-8 rounded-full">
 {{--                <span--}}
 {{--                    class="ml-8 font-medium text-indigo-600 hover:text-indigo-900 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out">--}}
 {{--                    {{ $user->name }}--}}
@@ -74,7 +74,7 @@
                 <a href="{{route('help')}}"
                    class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Help</a>
                 @if(isset($user))
-                    <img src="{{ $user->gravatar(140) }}" alt="{{ $user->name }}" class="inline mt-1 h-8 w-8 ml-3 rounded-full">
+                    <img src="{{$user->gravatar(140)}}" alt="{{$user->name}}" class="inline mt-1 h-8 w-8 ml-3 rounded-full">
                 @endif
             </div>
             @if(!isset($user))
