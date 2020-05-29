@@ -1,10 +1,10 @@
 @extends('layouts.common')
 @section('title', 'Sign Up')
 @section('content')
-    <div>
-        <div x-data="{open : true}"
+    <div class="lg:overflow-y-hidden">
+        <div
             class="flex justify-center h-screen bg-white md:float-left md:w-1/3 lg:float-left lg:w-1/3 xl:float-left xl:w-1/3">
-            <div class="self-center xl:p-16 w-4/5 text-sm">
+            <div class="self-center xl:p-16 w-4/5 text-sm"  x-data="{open : true}">
                 <div id="sign_in"
                      x-show="open"
                      x-transition:enter="transition ease-in duration-500"
