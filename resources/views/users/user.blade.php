@@ -1,12 +1,16 @@
 @extends('layouts.common')
-@section('title', 'Sign Up')
+@if($is_sign_in == 0)
+    @section('title', 'Sign Up')
+@else
+    @section('title', 'Sign In')
+@endif
 @section('content')
     <div class="lg:overflow-y-hidden">
         <div
             class="flex justify-center h-screen bg-white md:float-left md:w-1/3 lg:float-left lg:w-1/3 xl:float-left xl:w-1/3">
-            <div class="self-center xl:p-16 w-4/5 text-sm"  x-data="{open : true}">
+            <div class="self-center xl:p-16 w-4/5 text-sm" x-data="{open : {{$is_sign_in}}}">
                 <div id="sign_in"
-                     x-show="open"
+                     x-show="open == 1"
                      x-transition:enter="transition ease-in duration-500"
                      x-transition:enter-start="opacity-0 transform"
                      x-transition:enter-end="opacity-100 transform"
@@ -77,28 +81,35 @@
                         </div>
                     </div>
                     <div>
-                        <button @click="open = false"
-                            class="w-full py-2 px-3 border bg-gray-500 rounded text-white hover:bg-gray-600">
+                        <button @click="open = 0"
+                                class="w-full py-2 px-3 border bg-gray-500 rounded text-white hover:bg-gray-600">
                             Register
                         </button>
                     </div>
                 </div>
                 <div id="register"
-                     x-show="!open"
+                     x-show="open == 0"
                      x-transition:enter="transition ease-in duration-500"
                      x-transition:enter-start="opacity-0 transform"
                      x-transition:enter-end="opacity-100 transform"
                      x-transition:leave="transition opacity-0"
                 >
                     @include('layouts.logo')
-                    <div class="pt-12">
+                    <div class="pt-12 mb-5">
                         <span class="text-2xl font-bold">Register an account</span>
                     </div>
+                    @include('shared.errors')
                     <div>
-                        <form action="#" method="post">
+                        <form action="{{ route('users.store') }}" method="post">
+                            @csrf
+                            <div class="mb-3">
+                                <label class="block mb-1 font-semibold" for="username">Username</label>
+                                <input id="email" type="text" name="username" class="w-full border rounded py-2 px-3">
+                            </div>
                             <div class="mb-3">
                                 <label class="block mb-1 font-semibold" for="register-email">Email address</label>
-                                <input id="register-email" type="text" name="email" class="w-full border rounded py-2 px-3">
+                                <input id="register-email" type="text" name="email" value="{{ old('email') }}"
+                                       class="w-full border rounded py-2 px-3">
                             </div>
                             <div class="mb-3">
                                 <label class="block mb-1 font-semibold" for="register-password">Password</label>
@@ -107,7 +118,7 @@
                             </div>
                             <div class="mb-6">
                                 <label class="block mb-1 font-semibold" for="confirm-password">Confirm Password</label>
-                                <input type="password" name="confirm_password" id="confirm-password"
+                                <input type="password" name="password_confirmation" id="confirm-password"
                                        class="w-full border rounded py-2 px-3">
                             </div>
                             <button type="submit"
@@ -123,7 +134,7 @@
                                 <span class="px-4 bg-white text-gray-500">Already have an account?</span>
                             </div>
                         </div>
-                        <button @click="open = true"
+                        <button @click="open = 1"
                                 class="w-full py-2 px-3 border bg-gray-500 rounded text-white hover:bg-gray-600">
                             Log in
                         </button>

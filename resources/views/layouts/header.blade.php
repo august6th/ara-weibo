@@ -30,7 +30,7 @@
             <a href="{{route('help')}}"
                class="ml-8 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Help</a>
             @if(!isset($user))
-                <a href="{{ route('sign-up')}}"
+                <a href="{{ route('sign-in')}}"
                    class="ml-8 font-medium text-indigo-600 hover:text-indigo-900 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out">Log
                     in</a>
             @else
@@ -79,7 +79,7 @@
             </div>
             @if(!isset($user))
             <div>
-                <a href="{{route('sign-up')}}"
+                <a href="{{route('sign-in')}}"
                    class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100 hover:text-indigo-700 focus:outline-none focus:bg-gray-100 focus:text-indigo-700 transition duration-150 ease-in-out">
                     Log in
                 </a>
