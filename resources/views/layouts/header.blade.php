@@ -35,10 +35,6 @@
                     in</a>
             @else
                 <img src="{{$user->gravatar(140)}}" alt="{{$user->name}}" class="inline ml-8 h-8 w-8 rounded-full">
-{{--                <span--}}
-{{--                    class="ml-8 font-medium text-indigo-600 hover:text-indigo-900 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out">--}}
-{{--                    {{ $user->name }}--}}
-{{--                </span>--}}
             @endif
         </div>
     </nav>

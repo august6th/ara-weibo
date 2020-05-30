@@ -40,7 +40,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="relative py-6">
+                    <div class="relative py-5">
                         <div class="absolute inset-0 flex items-center">
                             <div class="w-full border-t border-gray-300"></div>
                         </div>
@@ -48,11 +48,13 @@
                             <span class="px-4 bg-white text-gray-500">Or continue with</span>
                         </div>
                     </div>
+                    @include('shared.errors')
                     <div>
-                        <form action="#" method="post">
+                        <form action="{{ route('login') }}" method="post">
+                            @csrf
                             <div class="mb-3">
                                 <label class="block mb-1 font-semibold" for="email">Email address</label>
-                                <input id="email" type="text" name="email" class="w-full border rounded py-2 px-3">
+                                <input id="email" type="text" name="email" class="w-full border rounded py-2 px-3" value="{{ old('email') }}">
                             </div>
                             <div class="mb-3">
                                 <label class="block mb-1 font-semibold" for="password">Password</label>
@@ -61,7 +63,7 @@
                             </div>
                             <div class="mb-3 flex justify-between text-xs">
                                 <label class="block inline-flex items-center" for="remember_me">
-                                    <input id="remember_me" type="checkbox" class="form-checkbox text-indigo-500">
+                                    <input id="remember_me" name="remember_me" type="checkbox" class="form-checkbox text-indigo-500">
                                     <span class="ml-2">Remember me</span>
                                 </label>
                                 <a href="#" class="block text-indigo-500">Forgot?</a>

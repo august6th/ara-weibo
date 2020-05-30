@@ -13,9 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// 静态页
 Route::get('/', 'StaticPagesController@home')->name('home');
 Route::get('/help', 'StaticPagesController@help')->name("help");
 Route::get('/about', 'StaticPagesController@about')->name("about");
-Route::get('/sign-up', 'UserController@signUp')->name("sign-up");
-Route::get('/sign-in', 'UserController@signIn')->name("sign-in");
-Route::resource('users', 'UserController');
+
+// 用户相关
+Route::get('/sign-up', 'User\UserController@signUp')->name("sign-up");
+Route::get('/sign-in', 'User\UserController@signIn')->name("sign-in");
+Route::resource('users', 'User\UserController');
+
+Route::post('login', 'User\SessionsController@store')->name("login");
+Route::delete('logout', 'User\SessionsController@destroy')->name("logout");
